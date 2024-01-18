@@ -1,0 +1,109 @@
+{
+    "type": "table",
+    "database": null,
+    "name": "tb_banners",
+    "withoutRowId": false,
+    "strict": false,
+    "ddl": "CREATE TABLE tb_banners (banner_id INTEGER PRIMARY KEY NOT NULL, banner_url VARCHAR NOT NULL, banner_name VARCHAR NOT NULL, banner_value INTEGER NOT NULL, banner_set VARCHAR);",
+    "columns": [
+        {
+            "name": "banner_id",
+            "type": "INTEGER",
+            "constraints": [
+                {
+                    "type": "PRIMARY KEY",
+                    "definition": "PRIMARY KEY "
+                },
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL"
+                }
+            ]
+        },
+        {
+            "name": "banner_url",
+            "type": "VARCHAR",
+            "constraints": [
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL"
+                }
+            ]
+        },
+        {
+            "name": "banner_name",
+            "type": "VARCHAR",
+            "constraints": [
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL"
+                }
+            ]
+        },
+        {
+            "name": "banner_value",
+            "type": "INTEGER",
+            "constraints": [
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL"
+                }
+            ]
+        },
+        {
+            "name": "banner_set",
+            "type": "VARCHAR"
+        }
+    ],
+    "rows": [
+        [
+            301,
+            "https:\/\/cdn.discordapp.com\/attachments\/1073281743949402162\/1073282775567835317\/jasperBanner001.png",
+            "Rose’s Scabbard",
+            700,
+            "Steven Universe"
+        ],
+        [
+            302,
+            "https:\/\/media.discordapp.net\/attachments\/1073281743949402162\/1076625337896685588\/jasperBanner002.png",
+            "The Crystal Temple",
+            700,
+            "Steven Universe"
+        ],
+        [
+            303,
+            "https:\/\/media.discordapp.net\/attachments\/1073281743949402162\/1076625409648631938\/jasperBanner003.png",
+            "Pink Sky",
+            800,
+            "Steven Universe"
+        ],
+        [
+            304,
+            "https:\/\/media.discordapp.net\/attachments\/1073281743949402162\/1076625466447908974\/jasperBanner004.png",
+            "Leaving Beach City",
+            700,
+            "Steven Universe"
+        ],
+        [
+            305,
+            "https:\/\/media.discordapp.net\/attachments\/1073281743949402162\/1083880348359852082\/jasperBanner005.png",
+            "LGBT Ladder",
+            1000,
+            "Mundo Golu"
+        ],
+        [
+            306,
+            "https:\/\/cdn.discordapp.com\/attachments\/1073281743949402162\/1083880422494175353\/jasperBanner006.png",
+            "Millwind Ranch",
+            900,
+            "Mundo Golu"
+        ],
+        [
+            307,
+            "https:\/\/cdn.discordapp.com\/attachments\/1073281743949402162\/1186384977307373628\/bannerDefault.png",
+            "Minimalist Jasper",
+            500,
+            "Minimalism"
+        ]
+    ]
+}

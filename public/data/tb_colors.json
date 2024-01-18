@@ -1,0 +1,127 @@
+{
+    "type": "table",
+    "database": null,
+    "name": "tb_colors",
+    "withoutRowId": false,
+    "strict": false,
+    "ddl": "CREATE TABLE tb_colors (color_id INTEGER PRIMARY KEY UNIQUE NOT NULL, color_hex VARCHAR NOT NULL, color_name VARCHAR NOT NULL, color_value INTEGER NOT NULL, color_emoji varchar);",
+    "columns": [
+        {
+            "name": "color_id",
+            "type": "INTEGER",
+            "constraints": [
+                {
+                    "type": "PRIMARY KEY",
+                    "definition": "PRIMARY KEY "
+                },
+                {
+                    "type": "UNIQUE",
+                    "definition": "UNIQUE "
+                },
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL"
+                }
+            ]
+        },
+        {
+            "name": "color_hex",
+            "type": "VARCHAR",
+            "constraints": [
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL"
+                }
+            ]
+        },
+        {
+            "name": "color_name",
+            "type": "VARCHAR",
+            "constraints": [
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL"
+                }
+            ]
+        },
+        {
+            "name": "color_value",
+            "type": "INTEGER",
+            "constraints": [
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL"
+                }
+            ]
+        },
+        {
+            "name": "color_emoji",
+            "type": "varchar"
+        }
+    ],
+    "rows": [
+        [
+            101,
+            "#0a0000",
+            "Black",
+            200,
+            "<:color_black:1078900077462044682>"
+        ],
+        [
+            102,
+            "#ffffff",
+            "White",
+            200,
+            "<:color_white:1078900029676331059>"
+        ],
+        [
+            103,
+            "#d30c10",
+            "Red",
+            300,
+            "<:color_red:1078900097619857498>"
+        ],
+        [
+            104,
+            "#ffe600",
+            "Yellow",
+            300,
+            "<:color_yellow:1078900116074799114>"
+        ],
+        [
+            105,
+            "#070dff",
+            "Blue",
+            300,
+            "<:color_blue:1078900157418061834>"
+        ],
+        [
+            106,
+            "#23e727",
+            "Green",
+            400,
+            "<:color_green:1078900293032493147>"
+        ],
+        [
+            107,
+            "#ffa000",
+            "Orange",
+            400,
+            "<:color_orange:1078900226338857060>"
+        ],
+        [
+            108,
+            "#f804a4",
+            "Pink",
+            500,
+            "<:color_pink:1078900249311072276>"
+        ],
+        [
+            109,
+            "#ba0abb",
+            "Purple",
+            500,
+            "<:color_purple:1078900273327644742>"
+        ]
+    ]
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/index.css" media="screen" />
+    <link rel="icon" type="image/x-icon" href="/assets/images/jasper_icon.png">
+
+    <title>Lojinha - JasperBot Website</title>
+</head>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+    </script>
+
+<script>
+    $(function () {
+        $("#header").load("header.html");
+        $("#footer").load("footer.html");
+    });
+</script>
+
+<body>
+    <div id="header"></div>
+
+    <div id="container" class="container">
+        <img src="/assets/images/logo_bold2.png" alt="Jasper Bold Logo" class="logo">
+
+        <div class="subtitle">
+            • Confira todos os itens disponíveis para gastar seus quartzos e deixar seu <span
+                class="command">/profile</span> do jeito que você gostar!
+            <br><br>
+            • Aperte o botão do tipo de item desejado e <b>clique no item</b> para copiar o comando de compra.
+        </div>
+
+        <script src="/js/index.js"></script>
+
+        <div class="button-container">
+            <button class="button" onclick="loadColors()">Cores</button>
+            <button class="button" onclick="loadBanners()">Banners</button>
+            <button class="button" onclick="loadTitles()">Títulos</button>
+        </div>
+    </div>
+
+    <div id="shop"></div>
+
+    <div id="footer"></div>
+</body>
+
+</html>
