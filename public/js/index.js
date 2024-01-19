@@ -44,7 +44,7 @@ function loadColors() {
         document.getElementById("shop").appendChild(container);
     }
 
-    fetch('/data/tb_colors.json')
+    fetch('./public//data/tb_colors.json')
         .then(response => response.json())
         .then(jsonData => createColorElements(jsonData))
         .catch(error => console.error('Erro ao carregar o tb_colors.json:', error));
@@ -79,7 +79,7 @@ function loadTitles() {
         document.getElementById("shop").appendChild(container);
     }
 
-    fetch('/data/tb_titles.json')
+    fetch('./public//data/tb_titles.json')
         .then(response => response.json())
         .then(jsonData => createTitleElements(jsonData))
         .catch(error => console.error('Erro ao carregar o tb_titles.json:', error));
@@ -124,7 +124,7 @@ function loadBanners() {
         document.getElementById("shop").appendChild(container);
     }
 
-    fetch('/data/tb_banners.json')
+    fetch('./public//data/tb_banners.json')
         .then(response => response.json())
         .then(jsonData => createBannerElements(jsonData))
         .catch(error => console.error('Erro ao carregar o tb_banners.json:', error));
