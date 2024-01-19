@@ -31,7 +31,7 @@ function loadColors() {
             colorDiv.appendChild(nameParagraph);
 
             const priceParagraph = document.createElement("p");
-            priceParagraph.innerHTML = `${colorPrice} <img class="emoji" src="/assets/emojis/quartz.png">`;
+            priceParagraph.innerHTML = `${colorPrice} <img class="emoji" src="./public/assets/emojis/quartz.png">`;
             colorDiv.appendChild(priceParagraph);
 
             container.appendChild(colorDiv);
@@ -66,7 +66,7 @@ function loadTitles() {
             titleDiv.appendChild(nameParagraph);
 
             const priceParagraph = document.createElement("p");
-            priceParagraph.innerHTML = `${titlePrice} <img class="emoji" src="/assets/emojis/quartz.png">`;
+            priceParagraph.innerHTML = `${titlePrice} <img class="emoji" src="./public/assets/emojis/quartz.png">`;
             titleDiv.appendChild(priceParagraph);
 
             container.appendChild(titleDiv);
@@ -104,7 +104,7 @@ function loadBanners() {
             bannerDiv.appendChild(setParagraph);
 
             const priceParagraph = document.createElement("p");
-            priceParagraph.innerHTML = `${bannerValue} <img class="emoji" src="/assets/emojis/quartz.png">`;
+            priceParagraph.innerHTML = `${bannerValue} <img class="emoji" src="./public/assets/emojis/quartz.png">`;
             bannerDiv.appendChild(priceParagraph);
 
             const imageElement = document.createElement("img");
