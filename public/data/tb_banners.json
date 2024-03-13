@@ -1,106 +1,50 @@
 {
-    "type": "table",
-    "database": null,
-    "name": "tb_banners",
-    "withoutRowId": false,
-    "strict": false,
-    "ddl": "CREATE TABLE tb_banners (banner_id INTEGER PRIMARY KEY NOT NULL, banner_url VARCHAR NOT NULL, banner_name VARCHAR NOT NULL, banner_value INTEGER NOT NULL, banner_set VARCHAR);",
-    "columns": [
-        {
-            "name": "banner_id",
-            "type": "INTEGER",
-            "constraints": [
-                {
-                    "type": "PRIMARY KEY",
-                    "definition": "PRIMARY KEY "
-                },
-                {
-                    "type": "NOT NULL",
-                    "definition": "NOT NULL"
-                }
-            ]
-        },
-        {
-            "name": "banner_url",
-            "type": "VARCHAR",
-            "constraints": [
-                {
-                    "type": "NOT NULL",
-                    "definition": "NOT NULL"
-                }
-            ]
-        },
-        {
-            "name": "banner_name",
-            "type": "VARCHAR",
-            "constraints": [
-                {
-                    "type": "NOT NULL",
-                    "definition": "NOT NULL"
-                }
-            ]
-        },
-        {
-            "name": "banner_value",
-            "type": "INTEGER",
-            "constraints": [
-                {
-                    "type": "NOT NULL",
-                    "definition": "NOT NULL"
-                }
-            ]
-        },
-        {
-            "name": "banner_set",
-            "type": "VARCHAR"
-        }
-    ],
     "rows": [
         [
             301,
-            "https:\/\/cdn.discordapp.com\/attachments\/1073281743949402162\/1073282775567835317\/jasperBanner001.png",
+            "https://media.discordapp.net/attachments/1073281743949402162/1073282775567835317/jasperBanner001.png?ex=65fc637a&is=65e9ee7a&hm=17f28f9bf6565fe8c83a0b5c274b4ae22859a7dd982d07e2e4a21b4d4ab0af3d&=&format=webp&quality=lossless&width=1025&height=268",
             "Rose’s Scabbard",
             700,
             "Steven Universe"
         ],
         [
             302,
-            "https:\/\/media.discordapp.net\/attachments\/1073281743949402162\/1076625337896685588\/jasperBanner002.png",
+            "https://media.discordapp.net/attachments/1073281743949402162/1076625337896685588/jasperBanner002.png?ex=65ff51fb&is=65ecdcfb&hm=c0d3c94bdf7fc548ef7bace632a12b816e758d16994d58326e8c2d189315c470&=&format=webp&quality=lossless&width=1025&height=268",
             "The Crystal Temple",
             700,
             "Steven Universe"
         ],
         [
             303,
-            "https:\/\/media.discordapp.net\/attachments\/1073281743949402162\/1076625409648631938\/jasperBanner003.png",
+            "https://media.discordapp.net/attachments/1073281743949402162/1076625409648631938/jasperBanner003.png?ex=65ff520c&is=65ecdd0c&hm=8ba30e14842697e61c1eee8df87f8230aaafd08ffa20930da5fe8c5faec8c858&=&format=webp&quality=lossless&width=1025&height=268",
             "Pink Sky",
             800,
             "Steven Universe"
         ],
         [
             304,
-            "https:\/\/media.discordapp.net\/attachments\/1073281743949402162\/1076625466447908974\/jasperBanner004.png",
+            "https://media.discordapp.net/attachments/1073281743949402162/1076625466447908974/jasperBanner004.png?ex=65ff5219&is=65ecdd19&hm=1f79618e912bff9a722c73113bfee39b2eeee23c13d80932b67ed6fa2d6ec23e&=&format=webp&quality=lossless&width=1025&height=268",
             "Leaving Beach City",
             700,
             "Steven Universe"
         ],
         [
             305,
-            "https:\/\/media.discordapp.net\/attachments\/1073281743949402162\/1083880348359852082\/jasperBanner005.png",
+            "https://media.discordapp.net/attachments/1073281743949402162/1083880348359852082/jasperBanner005.png?ex=65fe073c&is=65eb923c&hm=e16eb751e95e3fb6ccf1fdac8ce543b546f90add64ff055ddf6348dff392f548&=&format=webp&quality=lossless&width=1025&height=347",
             "LGBT Ladder",
             1000,
             "Mundo Golu"
         ],
         [
             306,
-            "https:\/\/cdn.discordapp.com\/attachments\/1073281743949402162\/1083880422494175353\/jasperBanner006.png",
+            "https://media.discordapp.net/attachments/1073281743949402162/1083880422494175353/jasperBanner006.png?ex=65fe074e&is=65eb924e&hm=357637ed721c766c0ffdf02be635e61096572893b3dcefafca39073c0faededf&=&format=webp&quality=lossless&width=1025&height=347",
             "Millwind Ranch",
             900,
             "Mundo Golu"
         ],
         [
             307,
-            "https:\/\/cdn.discordapp.com\/attachments\/1073281743949402162\/1186384977307373628\/bannerDefault.png",
+            "https://media.discordapp.net/attachments/1073281743949402162/1186384977307373628/bannerDefault.png?ex=6601cc1c&is=65ef571c&hm=f4be3627feb0de0c84db3797abfd7dbeb7cdde197fd9c93b2f94282e4cb3f9f9&=&format=webp&quality=lossless&width=1025&height=268",
             "Minimalist Jasper",
             500,
             "Minimalism"
