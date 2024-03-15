@@ -1,7 +1,9 @@
+@import url('https://fonts.cdnfonts.com/css/gg-sans-2');
+
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'gg sans Normal', sans-serif;
     background-image: linear-gradient(rgb(247, 193, 112), rgb(243, 139, 113));
     background-position: center;
     background-repeat: repeat;
@@ -9,7 +11,12 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 110vh;
+}
+
+body a {
+    text-decoration: none;
+    color: rgb(0, 110, 233)
 }
 
 .navbar {
@@ -50,6 +57,10 @@ body {
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     flex: 1;
+}
+
+.container img {
+    text-align: center;
 }
 
 .logo {
@@ -93,6 +104,7 @@ body {
     align-self: center;
     border-radius: 30px;
     padding: 20px;
+    max-width: 100%;
 }
 
 .subtitle {
