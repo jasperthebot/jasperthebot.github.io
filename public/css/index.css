@@ -19,6 +19,13 @@ body a {
     color: rgb(0, 110, 233)
 }
 
+.logo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 60%;
+    height: 60%;
+}
+
 .navbar {
     background-color: #333;
     overflow: hidden;
@@ -33,6 +40,7 @@ body a {
     color: white;
     text-align: center;
     padding: 16px;
+    height: 5%;
     text-decoration: none;
 }
 
@@ -41,6 +49,7 @@ body a {
     height: 5%;
     padding: 0px 15px;
     margin-top: 10px;
+    margin-bottom: 0;
     float: left;
 }
 
@@ -61,13 +70,6 @@ body a {
 
 .container img {
     text-align: center;
-}
-
-.logo {
-    display: block;
-    margin: 0 auto 20px;
-    width: 60%;
-    height: 60%;
 }
 
 .command {
