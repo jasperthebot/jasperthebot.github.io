@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Slider Navbar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            position: relative;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .menu-icon {
+            font-size: 30px;
+            cursor: pointer;
+            padding: 10px;
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            /* Ensure it's above other content */
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            /* Start hidden */
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.3s;
+            padding-top: 60px;
+        }
+
+        .menu a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #f1f1f1;
+        }
+
+        .menu.open {
+            left: 0;
+            /* Slide in */
+        }
+
+        .menu-icon.open {
+            left: 260px;
+            /* Position when menu is open */
+        }
+
+        .navbar-menu {
+            display: none;
+            /* Hidden by default */
+        }
+
+        .navbar-menu a {
+            color: #fff;
+            padding: 10px 15px;
+            text-decoration: none;
+        }
+
+        .navbar-menu a:hover {
+            background-color: #575757;
+        }
+
+        /* Media queries */
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: inline-block;
+                /* Show hamburger icon */
+            }
+
+            .navbar-menu {
+                display: none;
+                /* Hide desktop navbar */
+            }
+        }
+
+        @media (min-width: 769px) {
+            .menu {
+                display: none;
+                /* Hide mobile menu */
+            }
+
+            .navbar-menu {
+                display: flex;
+                /* Show desktop navbar */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <span class="menu-icon" id="menuIcon" onclick="toggleNavbar()">☰</span>
+        <div class="menu" id="menu">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="navbar-menu">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleNavbar() {
+            var menu = document.getElementById('menu');
+            var menuIcon = document.getElementById('menuIcon');
+            menu.classList.toggle('open');
+            menuIcon.classList.toggle('open');
+        }
+    </script>
+</body>
+
+</html>
