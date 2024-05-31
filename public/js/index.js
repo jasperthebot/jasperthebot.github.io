@@ -6,7 +6,7 @@ function cleanItems() {
 }
 
 function copyCommand(id) {
-    navigator.clipboard.writeText('/buy item_id:' + id)
+    navigator.clipboard.writeText(`/item buy item_id:${id}`)
         .then(() => {
             alert("Comando copiado para a área de transferência!");
         })
@@ -15,117 +15,123 @@ function copyCommand(id) {
         });
 }
 
-function loadColors() {
-    cleanItems();
+function createCommonElements(rowData, additionalElements, isBanner = false) {
+    const itemDiv = document.createElement("div");
+    itemDiv.classList.add("item");
 
-    function createColorElements(bannerData) {
-        bannerData.rows.forEach(rowData => {
-            const [colorId, colorHex, colorName, colorPrice] = rowData;
+    rowData.forEach(data => {
+        if (typeof data === 'string' && data.includes('http')) {
+            const imageElement = document.createElement("img");
+            imageElement.src = data;
+            imageElement.alt = data;
+            imageElement.style.maxWidth = isBanner ? "100%" : "10%";
+            imageElement.style.borderRadius = "10px";
+            itemDiv.appendChild(imageElement);
+        } else {
+            const paragraph = document.createElement("p");
+            paragraph.innerHTML = data;
+            itemDiv.appendChild(paragraph);
+        }
+    });
 
-            const colorDiv = document.createElement("div");
-            colorDiv.classList.add("item");
-            colorDiv.style.color = colorHex;
+    additionalElements.forEach(element => itemDiv.appendChild(element));
 
-            const nameParagraph = document.createElement("p");
-            nameParagraph.innerHTML = `<b>${colorName}</b>`;
-            colorDiv.appendChild(nameParagraph);
-
-            const priceParagraph = document.createElement("p");
-            priceParagraph.innerHTML = `${colorPrice} <img class="emoji" src="./public/assets/emojis/quartz.png">`;
-            colorDiv.appendChild(priceParagraph);
-
-            container.appendChild(colorDiv);
-
-            colorDiv.onclick = function () {
-                copyCommand(colorId);
-            };
-        });
-
-        document.getElementById("shop").appendChild(container);
-    }
-
-    fetch('./public//data/tb_colors.json')
-        .then(response => response.json())
-        .then(jsonData => createColorElements(jsonData))
-        .catch(error => console.error('Erro ao carregar o tb_colors.json:', error));
+    return itemDiv;
 }
 
+let currentData = [];
+let currentUrl = '';
+let currentMappingFunc = null;
+let currentAdditionalElementsFunc = null;
+let currentIsBanner = false;
+
+function loadItems(url, dataMappingFunc, additionalElementsFunc, isBanner = false) {
+    cleanItems();
+    currentUrl = url;
+    currentMappingFunc = dataMappingFunc;
+    currentAdditionalElementsFunc = additionalElementsFunc;
+    currentIsBanner = isBanner;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            currentData = data.rows;
+            renderItems();
+        })
+        .catch(error => console.error(`Erro ao carregar o ${url}:`, error));
+}
+
+function renderItems() {
+    cleanItems();
+
+    const sortOrder = document.getElementById("sort").value;
+    let sortedData = [...currentData];
+
+    if (sortOrder === "alphabetical") {
+        sortedData.sort((a, b) => a[2].toString().localeCompare(b[2].toString()));
+    } else if (sortOrder === "price") {
+        sortedData.sort((a, b) => parseFloat(a[3]) - parseFloat(b[3]));
+    } else if (sortOrder === "collection") {
+        sortedData.sort((a, b) => b[4].toString().localeCompare(a[4].toString()));
+    }
+
+    sortedData.forEach(async rowData => {
+        const additionalElements = currentAdditionalElementsFunc ? currentAdditionalElementsFunc(rowData) : [];
+        const itemDiv = createCommonElements(await currentMappingFunc(rowData), additionalElements, currentIsBanner);
+        itemDiv.onclick = () => copyCommand(rowData[0]);
+        container.appendChild(itemDiv);
+    });
+
+    document.getElementById("shop").appendChild(container);
+}
+
+function sortItems() {
+    renderItems();
+}
+
+function loadColors() {
+    loadItems('./public/data/tb_colors.json', rowData => [
+        `<b>${rowData[2]}</b>`,
+        `${rowData[3]} <img class="emoji" src="./public/assets/emojis/quartz.png">`,
+        rowData[5]
+    ]);
+}
 
 function loadTitles() {
-    cleanItems();
+    loadItems('./public/data/tb_titles.json', async rowData => [
+        `« <b>${rowData[1]}</b> »`,
+        `<i>${await searchCollectionName(rowData[4])}</i>`,
+        `${rowData[2]} <img class="emoji" src="./public/assets/emojis/quartz.png">`,
 
-    function createTitleElements(bannerData) {
-        bannerData.rows.forEach(rowData => {
-            const [titleId, titleName, titlePrice] = rowData;
-
-            const titleDiv = document.createElement("div");
-            titleDiv.classList.add("item");
-
-            const nameParagraph = document.createElement("p");
-            nameParagraph.innerHTML = `« <b>${titleName}</b> »`;
-            titleDiv.appendChild(nameParagraph);
-
-            const priceParagraph = document.createElement("p");
-            priceParagraph.innerHTML = `${titlePrice} <img class="emoji" src="./public/assets/emojis/quartz.png">`;
-            titleDiv.appendChild(priceParagraph);
-
-            container.appendChild(titleDiv);
-
-            titleDiv.onclick = function () {
-                copyCommand(titleId);
-            };
-        });
-
-        document.getElementById("shop").appendChild(container);
-    }
-
-    fetch('./public//data/tb_titles.json')
-        .then(response => response.json())
-        .then(jsonData => createTitleElements(jsonData))
-        .catch(error => console.error('Erro ao carregar o tb_titles.json:', error));
+    ]);
 }
 
-function loadBanners() {
-    cleanItems();
+async function loadBanners() {
+    loadItems('./public/data/tb_banners.json', async rowData => [
+        `<b>${rowData[2]}</b>`,
+        `<i>${await searchCollectionName(rowData[4])}</i>`,
+        `${rowData[3]} <img class="emoji" src="./public/assets/emojis/quartz.png">`,
+        rowData[1]
+    ], null, true);
+}
 
-    function createBannerElements(bannerData) {
-        bannerData.rows.forEach(rowData => {
-            const [bannerId, bannerUrl, bannerName, bannerValue, bannerSet] = rowData;
+function loadPins() {
+    loadItems('./public/data/tb_pins.json', async rowData => [
+        `<b>${rowData[2]}</b>`,
+        `<i>${await searchCollectionName(rowData[4])}</i>`,
+        `${rowData[3]} <img class="emoji" src="./public/assets/emojis/quartz.png">`,
+        rowData[5]
+    ]);
+}
 
-            const bannerDiv = document.createElement("div");
-            bannerDiv.classList.add("item");
-
-            const nameParagraph = document.createElement("p");
-            nameParagraph.innerHTML = `<b>${bannerName}</b>`;
-            bannerDiv.appendChild(nameParagraph);
-
-            const setParagraph = document.createElement("p");
-            setParagraph.innerHTML = `<i>${bannerSet}</i>`;
-            bannerDiv.appendChild(setParagraph);
-
-            const priceParagraph = document.createElement("p");
-            priceParagraph.innerHTML = `${bannerValue} <img class="emoji" src="./public/assets/emojis/quartz.png">`;
-            bannerDiv.appendChild(priceParagraph);
-
-            const imageElement = document.createElement("img");
-            imageElement.src = bannerUrl;
-            imageElement.alt = bannerName;
-            imageElement.style.maxWidth = "100%";
-            imageElement.style.borderRadius = "10px";
-            bannerDiv.appendChild(imageElement);
-
-            container.appendChild(bannerDiv);
-
-            bannerDiv.onclick = function () {
-                copyCommand(bannerId);
-            };
-        });
-
-        document.getElementById("shop").appendChild(container);
+async function searchCollectionName(collectionId) {
+    try {
+        const response = await fetch('./public/data/tb_collections.json');
+        const data = await response.json();
+        const collection = data.rows.find(row => row[0] === Number(collectionId));
+        return collection ? collection[1] : 'Collection not found';
+    } catch (error) {
+        console.error('Erro ao carregar o arquivo JSON:', error);
+        return 'Error loading collection name';
     }
-
-    fetch('./public//data/tb_banners.json')
-        .then(response => response.json())
-        .then(jsonData => createBannerElements(jsonData))
-        .catch(error => console.error('Erro ao carregar o tb_banners.json:', error));
 }

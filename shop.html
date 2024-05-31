@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./public/css/index.css" media="screen" />
     <link rel="icon" type="image/x-icon" href="./public/assets/images/jasper_icon.png">
-
     <title>Lojinha - JasperBot Website</title>
 </head>
 
@@ -22,30 +21,45 @@
 </script>
 
 <body>
-    <div id="header"></div>
+    <header id="header"></header>
 
     <div id="container" class="container">
         <img src="./public/assets/images/logo_bold2.png" alt="Jasper Bold Logo" class="logo">
 
         <div class="subtitle">
-            • Confira todos os itens disponíveis para gastar seus quartzos e deixar seu <span
-                class="command">/profile</span> do jeito que você gostar!
+            • Confira todos os itens disponíveis para gastar seus quartzos e deixe seu <span
+                class="command">/profile</span> a sua cara!
             <br><br>
-            • Aperte o botão do tipo de item desejado e <b>clique no item</b> para copiar o comando de compra.
+            • Aperte o botão do tipo de item desejado e <b>CLIQUE NO ITEM</b> para copiar o comando de compra.
         </div>
 
         <script src="./public/js/index.js"></script>
 
         <div class="button-container">
-            <button class="button" onclick="loadColors()">Cores</button>
-            <button class="button" onclick="loadBanners()">Banners</button>
-            <button class="button" onclick="loadTitles()">Títulos</button>
+            <button class="button" onclick="loadColors()">CORES</button>
+            <button class="button" onclick="loadBanners()">BANNERS</button>
+            <button class="button" onclick="loadTitles()">TÍTULOS</button>
+            <button class="button" onclick="loadPins()">EMBLEMAS</button>
+        </div>
+
+        <div class="sort-container">
+            <select id="sort" onchange="sortItems()">
+                <option value="price">Ordem de Preço</option>
+                <option value="alphabetical">Ordem Alfabética (Nome)</option>
+                <option value="collection">Ordem Alfabética (Coleção)</option>
+            </select>
         </div>
     </div>
 
     <div id="shop"></div>
 
-    <div id="footer"></div>
+    <footer id="footer"></footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            loadColors();
+        });
+    </script>
 </body>
 
 </html>
