@@ -1,5 +1,7 @@
+/* Importação da fonte */
 @import url('https://fonts.cdnfonts.com/css/gg-sans-2');
 
+/* Estilo do corpo da página */
 body {
     margin: 0;
     padding: 0;
@@ -14,11 +16,13 @@ body {
     min-height: 110vh;
 }
 
+/* Estilo de links no corpo */
 body a {
     text-decoration: none;
-    color: rgb(0, 110, 233)
+    color: rgb(0, 110, 233);
 }
 
+/* Estilo do logo */
 .logo {
     display: block;
     margin: 0 auto 20px;
@@ -26,6 +30,7 @@ body a {
     height: 60%;
 }
 
+/* Navbar fixa no topo */
 .navbar {
     background-color: #333;
     overflow: hidden;
@@ -44,6 +49,7 @@ body a {
     text-decoration: none;
 }
 
+/* Estilo do logo da navbar */
 .navbar img {
     width: 5%;
     height: 5%;
@@ -58,6 +64,104 @@ body a {
     color: black;
 }
 
+/* Estilo da nova navbar */
+.navbar-menu {
+    display: none;
+    background-color: #333;
+    padding-inline: 60px;
+}
+
+.navbar-menu img {
+    width: 5%;
+    height: 5%;
+    padding: 0px 15px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    float: left;
+}
+
+.navbar-menu a {
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+.navbar-menu a:hover {
+    background-color: #575757;
+}
+
+/* Estilo do menu */
+.menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    color: #333;
+    background-color: #333;
+    overflow: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+}
+
+.menu a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: #f1f1f1;
+}
+
+.menu.open {
+    left: 0;
+}
+
+.menu-icon.open {
+    left: 260px;
+    /* Posição quando o menu está aberto */
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: inline-block;
+        /* Exibe o hambúrguer */
+    }
+
+    .navbar-menu {
+        display: none;
+        /* Esconde a navbar de desktop */
+    }
+}
+
+@media (min-width: 769px) {
+    .menu {
+        display: none;
+        /* Esconde o hambúrguer */
+    }
+
+    .navbar-menu {
+        display: flex;
+        /* Exibe a navbar de desktop */
+    }
+}
+
+/* Container principal */
 .container {
     max-width: 800px;
     margin: 30px auto;
@@ -72,6 +176,7 @@ body a {
     text-align: center;
 }
 
+/* Estilo dos comandos */
 .command {
     color: #5c65f2;
     background-color: #dbdef4;
@@ -84,6 +189,7 @@ body a {
     background-color: #5865f2;
 }
 
+/* Estilos diversos */
 .injector {
     color: #e12a5c;
 }
@@ -96,12 +202,14 @@ body a {
     color: #8fbba2;
 }
 
+/* Emojis */
 .emoji {
     width: 20px;
     height: 20px;
     margin-right: 5px;
 }
 
+/* Mensagens */
 .message {
     align-self: center;
     border-radius: 30px;
@@ -109,26 +217,21 @@ body a {
     max-width: 100%;
 }
 
+/* Subtítulo */
 .subtitle {
     font-size: large;
 }
 
+/* Container de itens com animação */
 .item-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 150px;
-    -webkit-animation: fadein 0.5s;
-    /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 0.5s;
-    /* Firefox < 16 */
-    -ms-animation: fadein 0.5s;
-    /* Internet Explorer */
-    -o-animation: fadein 0.5s;
-    /* Opera < 12.1 */
     animation: fadein 0.5s;
 }
 
+/* Animação de fadein */
 @keyframes fadein {
     from {
         opacity: 0;
@@ -139,7 +242,7 @@ body a {
     }
 }
 
-/* Firefox < 16 */
+/* Suporte para outros navegadores */
 @-moz-keyframes fadein {
     from {
         opacity: 0;
@@ -150,7 +253,6 @@ body a {
     }
 }
 
-/* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes fadein {
     from {
         opacity: 0;
@@ -161,7 +263,6 @@ body a {
     }
 }
 
-/* Internet Explorer */
 @-ms-keyframes fadein {
     from {
         opacity: 0;
@@ -172,7 +273,6 @@ body a {
     }
 }
 
-/* Opera < 12.1 */
 @-o-keyframes fadein {
     from {
         opacity: 0;
@@ -183,6 +283,7 @@ body a {
     }
 }
 
+/* Estilo de itens */
 .item {
     flex: 0 0 calc(30% - 20px);
     margin: 10px;
@@ -196,6 +297,7 @@ body a {
     background-color: rgba(230, 230, 230, 0.8);
 }
 
+/* Rodapé */
 .footer {
     background-color: #333;
     color: white;
@@ -210,17 +312,20 @@ body a {
     color: white;
 }
 
+/* Ícones sociais */
 .social {
     width: 30px;
     height: 30px;
     padding: 0px 15px;
 }
 
+/* Container de botões */
 .button-container {
     margin-top: 10px;
     text-align: center;
 }
 
+/* Botões */
 .button {
     margin: 10px;
     padding: 12px;
@@ -236,10 +341,12 @@ body a {
     cursor: pointer;
 }
 
+/* Timestamp */
 .timestamp {
-    background-color: rgba(0, 0, 0, 0.15)
+    background-color: rgba(0, 0, 0, 0.15);
 }
 
+/* Tabela de comandos */
 .command-table {
     border-collapse: collapse;
     width: 100%;
@@ -261,6 +368,7 @@ body a {
     padding: 15px;
 }
 
+/* Container de ordenação */
 .sort-container {
     margin-top: 10px;
     text-align: center;
@@ -283,4 +391,5 @@ body a {
     font-size: large;
 }
 
+/* Responsividade */
 @media (max-width: 768px) {}
